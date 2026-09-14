@@ -1,0 +1,139 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f7f7f8;
+  --fg: #1a1a1a;
+  --border: #ccc;
+  --accent: #4a7c59;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1e1e1e;
+    --fg: #eee;
+    --border: #444;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: system-ui, sans-serif;
+  max-width: 720px;
+  margin-inline: auto;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
+h2 {
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+.intro {
+  opacity: 0.8;
+}
+
+.inputs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.skin-slot {
+  flex: 1;
+  min-width: 160px;
+}
+
+.skin-canvas {
+  display: block;
+  width: 128px;
+  height: 128px;
+  image-rendering: pixelated;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(45deg, #8884 25%, transparent 25%, transparent 75%, #8884 75%),
+    linear-gradient(45deg, #8884 25%, transparent 25%, transparent 75%, #8884 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 8px 8px;
+}
+
+.error {
+  color: #d33;
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+
+.parts {
+  margin-top: 24px;
+}
+
+.parts-grid {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr;
+  gap: 8px 16px;
+  align-items: center;
+  margin-top: 12px;
+  max-width: 420px;
+}
+
+.parts-grid .head {
+  font-weight: 600;
+}
+
+.layer-toggle {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.layer-toggle button {
+  border: none;
+  background: transparent;
+  color: var(--fg);
+  padding: 4px 10px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.layer-toggle button.active {
+  background: var(--accent);
+  color: white;
+}
+
+#bodyFromB {
+  font: inherit;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.output {
+  margin-top: 24px;
+}
+
+.download-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+}
+
+.download-link[aria-disabled="true"] {
+  pointer-events: none;
+  opacity: 0.5;
+}

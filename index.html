@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minecraft Skin Merger</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1>Minecraft Skin Merger</h1>
+<p class="intro">Combine two Java Edition skins (64&times;64 PNG): pick, per body part and layer, whether the merged skin takes that piece from Skin A or Skin B.</p>
+
+<section class="inputs">
+  <div class="skin-slot">
+    <h2>Skin A</h2>
+    <input type="file" id="fileA" accept="image/png">
+    <canvas id="previewA" width="64" height="64" class="skin-canvas"></canvas>
+    <p class="error" id="errorA"></p>
+  </div>
+  <div class="skin-slot">
+    <h2>Skin B</h2>
+    <input type="file" id="fileB" accept="image/png">
+    <canvas id="previewB" width="64" height="64" class="skin-canvas"></canvas>
+    <p class="error" id="errorB"></p>
+  </div>
+</section>
+
+<section class="parts">
+  <h2>Body parts</h2>
+  <button type="button" id="bodyFromB">Take body (everything but head) from B</button>
+  <div class="parts-grid" id="partsGrid"></div>
+</section>
+
+<section class="output">
+  <h2>Result</h2>
+  <canvas id="previewOutput" width="64" height="64" class="skin-canvas"></canvas>
+  <a id="downloadLink" class="download-link" download="merged-skin.png">Download merged-skin.png</a>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
