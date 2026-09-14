@@ -1,4 +1,5 @@
 # minecraft-skinmerger
+https://n-brand.github.io/minecraft-skinmerger/
 
 A small client-side web tool for combining two Minecraft Java Edition skins.
 Upload two 64x64 skin PNGs and choose, per body part (head, torso, arms, legs)
