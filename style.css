@@ -77,11 +77,11 @@ h2 {
 
 .parts-grid {
   display: grid;
-  grid-template-columns: auto 1fr 1fr;
+  grid-template-columns: auto auto auto;
   gap: 8px 16px;
   align-items: center;
   margin-top: 12px;
-  max-width: 420px;
+  max-width: fit-content;
 }
 
 .parts-grid .head {

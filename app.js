@@ -105,10 +105,12 @@ function buildLayerToggle(part, layer, layerLabel) {
   wrap.className = 'layer-toggle';
   wrap.dataset.key = regionKey(part, layer);
 
-  for (const source of ['A', 'B']) {
+  const sources = layer === 'overlay' ? ['A', 'B', 'None'] : ['A', 'B'];
+
+  for (const source of sources) {
     const btn = document.createElement('button');
     btn.type = 'button';
-    btn.textContent = `${layerLabel} ${source}`;
+    btn.textContent = source === 'None' ? 'None' : `${layerLabel} ${source}`;
     btn.dataset.source = source;
     btn.addEventListener('click', () => {
       state[part][layer] = source;
@@ -148,13 +150,15 @@ function renderMerge() {
 
   for (const region of REGIONS) {
     const source = state[region.part][region.layer];
-    if (source !== 'B') continue;
+    if (source === 'A') continue;
     ctx.clearRect(region.x, region.y, region.w, region.h);
-    ctx.drawImage(
-      images.B,
-      region.x, region.y, region.w, region.h,
-      region.x, region.y, region.w, region.h,
-    );
+    if (source === 'B') {
+      ctx.drawImage(
+        images.B,
+        region.x, region.y, region.w, region.h,
+        region.x, region.y, region.w, region.h,
+      );
+    }
   }
 
   downloadLink.href = canvas.toDataURL('image/png');
